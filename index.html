@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        .wrap{
+            width: 400px;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+        }
+        button{
+            width: 120px;
+            height: 30px;
+           
+        }
+        .active{
+            background: pink;
+        }
+        .box div{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="btn">
+            <button class="active">按钮一</button>
+            <button>按钮二</button>
+            <button>按钮三</button>
+        </div>
+        <div class="box">
+            <div style="width:370px;height:300px;background:red;display:block">盒子一</div>
+            <div style="width:370px;height:300px;background:yellow;" >盒子二</div>
+            <div style="width:370px;height:300px;background:green;" >盒子三</div>
+        </div>
+    </div>
+    <script src="jquery.js"></script>
+    <script>
+        $('.btn').on('click','button', function () {
+            $(this).addClass('active').siblings().removeClass('active');
+            $('.box div').css('display','none');
+           $('.box div').eq($(this).index()).css('display','block');
+        })
+    </script>
+</body>
+</html>
